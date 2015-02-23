@@ -1,0 +1,26 @@
+{
+  "name": "ec-calendar",
+  "version": "1.0.0",
+  "description": "Important dates for Elizabeth and Clarke",
+  "main": "index.js",
+  "repository": "https://github.com/buritica/ec-calendar",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha --compilers js:babel/register"
+  },
+  "author": "Juan Pablo Buritica <buritica@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel": "^4.4.5",
+    "broccoli": "^0.13.3",
+    "broccoli-dist-es6-module": "git://github.com/buritica/broccoli-dist-es6-module",
+    "chai": "^2.0.0",
+    "mocha": "^2.1.0"
+  },
+  "dependencies": {
+    "debug": "^2.1.1",
+    "lodash": "^3.3.0"
+  }
+}

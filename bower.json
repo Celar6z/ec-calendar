@@ -1,0 +1,26 @@
+{
+  "name": "ec-calendar",
+  "version": "1.0.0",
+  "homepage": "https://github.com/buritica/ec-calendar",
+  "authors": [
+    "Juan Pablo Buritica <buritica@gmail.com>"
+  ],
+  "main": "lib/index.js",
+  "moduleType": [
+    "amd",
+    "es6",
+    "globals",
+    "node"
+  ],
+  "keywords": [
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

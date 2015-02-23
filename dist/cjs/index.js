@@ -3,9 +3,6 @@
  * Module Dependencies
  */
 var _ = require("lodash")["default"] || require("lodash");
-var debug = require("debug")["default"] || require("debug");
-
-debug = debug('ec:calendar');
 
 /**
  * Locals

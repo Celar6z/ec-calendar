@@ -103,40 +103,36 @@ define(
       });
     });
 
-    class Calendar {
-      constructor(id) {
-        this.activeSeason = this.findSeason(id);
+    /**
+     * Find seaosn using season code
+     * @param  {String} id Season Code (e.g. WN11)
+     * @return {Season}
+     */
+    function findSeason(id) {
+      if (!id) {
+        throw Error('season id not specified');
       }
-
-      get years() {
-        return years;
-      }
-
-      get seasons() {
-        return seasons;
-      }
-
-      get upcomingSeason() {
-        var activeIndex = seasons.indexOf(this.activeSeason);
-        var upcomingSeason = seasons[activeIndex + 1];
-        debug('upcomingSeason: %s', upcomingSeason.id);
-        return upcomingSeason;
-      }
-
-      get previousSeason() {
-        var activeIndex = seasons.indexOf(this.activeSeason);
-        var previousSeason = seasons[activeIndex - 1];
-        debug('previousSeason: %s', previousSeason.id);
-        return previousSeason;
-      }
-
-      findSeason(id) {
-        if (!id) {
-          throw Error('season id not specified');
-        }
-        return _.find(seasons, {id:id});
-      }
+      return _.find(seasons, {id:id});
     }
+
+    /**
+     * Calendar
+     */
+    function Calendar(id) {
+      var activeIndex;
+
+      this.years = years;
+      this.seasons = seasons;
+
+      this.activeSeason = findSeason(id);
+
+      activeIndex = seasons.indexOf(this.activeSeason);
+
+      this.previousSeason = seasons[activeIndex - 1];
+      this.upcomingSeason = seasons[activeIndex + 1];
+    }
+
+    Calendar.prototype.findSeason = findSeason;
 
     __exports__["default"] = Calendar;
   });

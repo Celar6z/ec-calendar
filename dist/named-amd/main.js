@@ -1,7 +1,7 @@
 /* globals define, _ */
 define("ec-calendar",
   ["exports"],
-  function(__dependency1__, __exports__) {
+  function(__exports__) {
     "use strict";
     /**
      * Module Dependencies

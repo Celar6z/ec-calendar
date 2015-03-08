@@ -1,6 +1,6 @@
 {
   "name": "ec-calendar",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "homepage": "https://github.com/buritica/ec-calendar",
   "authors": [
     "Juan Pablo Buritica <buritica@gmail.com>"
@@ -12,8 +12,7 @@
     "globals",
     "node"
   ],
-  "keywords": [
-  ],
+  "keywords": [],
   "license": "MIT",
   "private": true,
   "ignore": [

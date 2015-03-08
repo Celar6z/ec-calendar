@@ -1,11 +1,11 @@
-/* globals define, _ */
 define("ec-calendar",
-  ["exports"],
-  function(__exports__) {
+  ["lodash","exports"],
+  function(__dependency1__, __exports__) {
     "use strict";
     /**
      * Module Dependencies
      */
+    var _ = __dependency1__["default"] || __dependency1__;
 
     /**
      * Locals

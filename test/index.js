@@ -80,6 +80,16 @@ describe('Seasons @unit', function() {
         expect(this.season.dates.ship.toString()).to.contain('Dec');
       });
 
+      it('should have inStoreDate: Aug 1 2011', function() {
+        var month = 7;
+        var day = 1;
+        var year = 2011;
+        var date = new Date(year, month, day);
+
+        expect(this.season.dates.inStore.getTime()).to.equal(date.getTime());
+        expect(this.season.dates.inStore.toString()).to.contain('Aug');
+      });
+
       it('should have kind: winter', function() {
         expect(this.season).to.have.property('kind', 'winter');
       });
@@ -124,6 +134,16 @@ describe('Seasons @unit', function() {
 
         expect(this.season.dates.ship.getTime()).to.equal(date.getTime());
         expect(this.season.dates.ship.toString()).to.contain('Mar');
+      });
+
+      it('should have inStoreDate: Nov 1 2012', function() {
+        var month = 10;
+        var day = 1;
+        var year = 2012;
+        var date = new Date(year, month, day);
+
+        expect(this.season.dates.inStore.getTime()).to.equal(date.getTime());
+        expect(this.season.dates.inStore.toString()).to.contain('Nov');
       });
 
       it('should have kind: spring', function() {
@@ -172,6 +192,16 @@ describe('Seasons @unit', function() {
         expect(this.season.dates.ship.toString()).to.contain('Jun');
       });
 
+      it('should have inStoreDate: Feb 1 2012', function() {
+        var month = 1;
+        var day = 1;
+        var year = 2012;
+        var date = new Date(year, month, day);
+
+        expect(this.season.dates.inStore.getTime()).to.equal(date.getTime());
+        expect(this.season.dates.inStore.toString()).to.contain('Feb');
+      });
+
       it('should have kind: summer', function() {
         expect(this.season).to.have.property('kind', 'summer');
       });
@@ -218,6 +248,16 @@ describe('Seasons @unit', function() {
         expect(this.season.dates.ship.toString()).to.contain('Sep');
       });
 
+      it('should have inStoreDate: Apr 1 2012', function() {
+        var month = 3;
+        var day = 1;
+        var year = 2012;
+        var date = new Date(year, month, day);
+
+        expect(this.season.dates.inStore.getTime()).to.equal(date.getTime());
+        expect(this.season.dates.inStore.toString()).to.contain('Apr');
+      });
+
       it('should have kind: fall', function() {
         expect(this.season).to.have.property('kind', 'fall');
       });
@@ -262,6 +302,16 @@ describe('Seasons @unit', function() {
 
         expect(this.season.dates.ship.getTime()).to.equal(date.getTime());
         expect(this.season.dates.ship.toString()).to.contain('Dec');
+      });
+
+      it('should have inStoreDate: Aug 1 2012', function() {
+        var month = 7;
+        var day = 1;
+        var year = 2012;
+        var date = new Date(year, month, day);
+
+        expect(this.season.dates.inStore.getTime()).to.equal(date.getTime());
+        expect(this.season.dates.inStore.toString()).to.contain('Aug');
       });
 
       it('should have kind: winter', function() {
@@ -332,5 +382,5 @@ describe('Seasons @unit', function() {
       var season = calendar.findSeason('FA11');
       expect(season.id).to.equal('FA11');
     });
-  })
+  });
 });

@@ -1,6 +1,6 @@
 {
   "name": "ec-calendar",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Important dates for Elizabeth and Clarke",
   "main": "dist/cjs/index.js",
   "repository": "https://github.com/buritica/ec-calendar",

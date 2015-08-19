@@ -13,6 +13,7 @@ define(
     var today = new Date();
     var chargeDay = 15;
     var shipDay = 1;
+    var inStoreDay = 1;
     var seasons = [];
 
 
@@ -36,6 +37,7 @@ define(
       title: 'Winter',
       chargeMonth: 8,
       shipMonth: 11,
+      inStoreMonth: 7,
       kind: 'winter'
     };
 
@@ -44,6 +46,7 @@ define(
       title: 'Spring',
       chargeMonth: 11,
       shipMonth: 2,
+      inStoreMonth: 10,
       kind: 'spring'
     };
 
@@ -52,6 +55,7 @@ define(
       title: 'Summer',
       chargeMonth: 2,
       shipMonth: 5,
+      inStoreMonth: 1,
       kind: 'summer'
     };
 
@@ -60,6 +64,7 @@ define(
       title: 'Fall',
       chargeMonth: 5,
       shipMonth: 8,
+      inStoreMonth: 3,
       kind: 'fall'
     };
 
@@ -92,7 +97,8 @@ define(
           title: season.title + ' ' + year,
           dates: {
             charge: new Date(chargeYear, season.chargeMonth, chargeDay),
-            ship: new Date(shipYear, season.shipMonth, shipDay)
+            ship: new Date(shipYear, season.shipMonth, shipDay),
+            inStore: new Date(shipYear, season.inStoreMonth, inStoreDay)
           },
           year: year,
           kind: season.kind

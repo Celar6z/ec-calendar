@@ -10,6 +10,7 @@ var _ = require("lodash")["default"] || require("lodash");
 var today = new Date();
 var chargeDay = 15;
 var shipDay = 1;
+var inStoreDay = 1;
 var seasons = [];
 
 
@@ -33,6 +34,7 @@ var winter = {
   title: 'Winter',
   chargeMonth: 8,
   shipMonth: 11,
+  inStoreMonth: 7,
   kind: 'winter'
 };
 
@@ -41,6 +43,7 @@ var spring = {
   title: 'Spring',
   chargeMonth: 11,
   shipMonth: 2,
+  inStoreMonth: 10,
   kind: 'spring'
 };
 
@@ -49,6 +52,7 @@ var summer = {
   title: 'Summer',
   chargeMonth: 2,
   shipMonth: 5,
+  inStoreMonth: 1,
   kind: 'summer'
 };
 
@@ -57,6 +61,7 @@ var fall = {
   title: 'Fall',
   chargeMonth: 5,
   shipMonth: 8,
+  inStoreMonth: 3,
   kind: 'fall'
 };
 
@@ -89,7 +94,8 @@ years.forEach(function(year) {
       title: season.title + ' ' + year,
       dates: {
         charge: new Date(chargeYear, season.chargeMonth, chargeDay),
-        ship: new Date(shipYear, season.shipMonth, shipDay)
+        ship: new Date(shipYear, season.shipMonth, shipDay),
+        inStore: new Date(shipYear, season.inStoreMonth, inStoreDay)
       },
       year: year,
       kind: season.kind

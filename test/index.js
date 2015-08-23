@@ -101,6 +101,10 @@ describe('Seasons @unit', function() {
       it('should have code: WN', function() {
         expect(this.season).to.have.property('code', 'WN');
       });
+
+      it('should start in: Aug 1', function() {
+        expect(this.season.startDate.toString()).to.contain('Aug 01');
+      });
     });
 
     context('spring 2012', function() {
@@ -156,6 +160,10 @@ describe('Seasons @unit', function() {
 
       it('should have code: SP', function() {
         expect(this.season).to.have.property('code', 'SP');
+      });
+
+      it('should start in: Nov 1', function() {
+        expect(this.season.startDate.toString()).to.contain('Nov 01');
       });
     });
 
@@ -213,6 +221,10 @@ describe('Seasons @unit', function() {
       it('should have code: SM', function() {
         expect(this.season).to.have.property('code', 'SM');
       });
+
+      it('should start in: Feb 1', function() {
+        expect(this.season.startDate.toString()).to.contain('Feb 01');
+      });
     });
 
     context('fall 2012', function() {
@@ -269,6 +281,10 @@ describe('Seasons @unit', function() {
       it('should have code: FA', function() {
         expect(this.season).to.have.property('code', 'FA');
       });
+
+      it('should start in: Apr 1', function() {
+        expect(this.season.startDate.toString()).to.contain('Apr 01');
+      });
     });
 
     context('winter 2012', function() {
@@ -324,6 +340,10 @@ describe('Seasons @unit', function() {
 
       it('should have code: WN', function() {
         expect(this.season).to.have.property('code', 'WN');
+      });
+
+      it('should start in: Aug 1', function() {
+        expect(this.season.startDate.toString()).to.contain('Aug 01');
       });
     });
 

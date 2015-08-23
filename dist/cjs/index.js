@@ -88,6 +88,7 @@ years.forEach(function(year) {
       chargeYear = year - 1;
     }
 
+    var inStoreDate = new Date(shipYear, season.inStoreMonth, inStoreDay);
     seasons.push({
       id: season.code + suffix,
       code: season.code,
@@ -95,8 +96,9 @@ years.forEach(function(year) {
       dates: {
         charge: new Date(chargeYear, season.chargeMonth, chargeDay),
         ship: new Date(shipYear, season.shipMonth, shipDay),
-        inStore: new Date(shipYear, season.inStoreMonth, inStoreDay)
+        inStore: inStoreDate
       },
+      startDate: inStoreDate,
       year: year,
       kind: season.kind
     });

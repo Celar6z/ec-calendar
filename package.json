@@ -17,7 +17,8 @@
     "broccoli": "^0.13.3",
     "broccoli-dist-es6-module": "git://github.com/buritica/broccoli-dist-es6-module",
     "chai": "^2.0.0",
-    "mocha": "^2.1.0"
+    "mocha": "^2.1.0",
+    "sinon": "^1.17.0"
   },
   "dependencies": {
     "lodash": "^3.3.0"

@@ -34,11 +34,6 @@ describe('Seasons @unit', function() {
       var nextYear = new Date().getFullYear() + 1;
       expect(calendar.years).to.contain(nextYear);
     });
-
-    it('should not have 2 years after this year', function() {
-      var nextYear = new Date().getFullYear() + 2;
-      expect(calendar.years).to.not.contain(nextYear);
-    });
   });
 
   // winter sept 15, dec 1
@@ -347,6 +342,17 @@ describe('Seasons @unit', function() {
       });
     });
 
+    context('winter 2015', function () {
+      beforeEach(function () {
+        var calendar = new EcCalendar('WN15');
+        this.season = calendar.upcomingSeason;
+      });
+
+      it('next season should be spring and should be charged this year 2015', function () {
+        expect(this.season.dates.charge.getFullYear()).to.equal(2015);
+        expect(this.season.dates.charge.getMonth()).to.equal(11);
+      });
+    });
 
     describe('seasons per year', function() {
       var years = calendar.years;

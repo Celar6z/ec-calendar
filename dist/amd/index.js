@@ -23,10 +23,11 @@ define(
     var firstYear = 2011;
     var currentYear = today.getFullYear();
     var nextYear = currentYear + 1;
+    var nextTwoYears = currentYear + 2;
     var years = [];
 
-    for (var i = nextYear - firstYear; i >= 0; i--) {
-      years.push(nextYear - i);
+    for (var i = nextTwoYears - firstYear; i >= 0; i--) {
+      years.push(nextTwoYears - i);
     }
 
     /**
@@ -44,7 +45,7 @@ define(
     var spring = {
       code: 'SP',
       title: 'Spring',
-      chargeMonth: 11,
+      chargeMonth: -1,
       shipMonth: 2,
       inStoreMonth: 10,
       kind: 'spring'
@@ -79,16 +80,15 @@ define(
      * Build all seasons for each available year
      */
 
-    years.forEach(function(year) {
+    years.forEach(function (year) {
       var suffix = year - 2000;
 
-      defaults.forEach(function(season) {
+      defaults.forEach(function (season) {
         var chargeYear = year;
         var shipYear = year;
 
-        // in spring we charge the year before we ship
-        if (season.code === 'SP') {
-          chargeYear = year - 1;
+        if (season.code === 'SP' && currentYear === year) {
+          chargeYear += 1;
         }
 
         var inStoreDate = new Date(shipYear, season.inStoreMonth, inStoreDay);
@@ -117,7 +117,9 @@ define(
       if (!id) {
         throw Error('season id not specified');
       }
-      return _.find(seasons, {id:id});
+      return _.find(seasons, {
+        id: id
+      });
     }
 
     /**

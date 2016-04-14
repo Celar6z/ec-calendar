@@ -17,8 +17,8 @@ describe('Future change seasons year', function () {
     });
 
     it('next season should be spring and should be charged this year 2016', function () {
-      expect(this.upcomingSeason.id).to.equal('SP16');
-      expect(this.upcomingSeason.dates.charge.getFullYear()).to.equal(2015);
+      expect(this.upcomingSeason.id).to.equal('SP17');
+      expect(this.upcomingSeason.dates.charge.getFullYear()).to.equal(2016);
       expect(this.upcomingSeason.dates.charge.getMonth()).to.equal(11);
     });
   });
@@ -35,9 +35,9 @@ describe('Future change seasons year', function () {
       clock.restore();
     });
 
-    it('next season should be spring and should be charged this year 2016', function () {
-      expect(this.upcomingSeason.id).to.equal('SP17');
-      expect(this.upcomingSeason.dates.charge.getFullYear()).to.equal(2016);
+    it('next season should be spring and should be charged year 2017', function () {
+      expect(this.upcomingSeason.id).to.equal('SP18');
+      expect(this.upcomingSeason.dates.charge.getFullYear()).to.equal(2017);
       expect(this.upcomingSeason.dates.charge.getMonth()).to.equal(11);
     });
   });

@@ -4,33 +4,33 @@ import _ from 'lodash';
 
 var expect = chai.expect;
 
-var calendar = new  EcCalendar('SM15');
+var calendar = new EcCalendar('SM15');
 
-describe('Seasons @unit', function() {
-  describe('Years', function() {
+describe('Seasons @unit', function () {
+  describe('Years', function () {
 
-    it('should have `2011`', function() {
+    it('should have `2011`', function () {
       expect(calendar.years).to.contain(2011);
     });
 
-    it('should have `2012`', function() {
+    it('should have `2012`', function () {
       expect(calendar.years).to.contain(2012);
     });
 
-    it('should have `2013`', function() {
+    it('should have `2013`', function () {
       expect(calendar.years).to.contain(2013);
     });
 
-    it('should have `2014`', function() {
+    it('should have `2014`', function () {
       expect(calendar.years).to.contain(2014);
     });
 
-    it('should have this year', function() {
+    it('should have this year', function () {
       var thisYear = new Date().getFullYear();
       expect(calendar.years).to.contain(thisYear);
     });
 
-    it('should have next year', function() {
+    it('should have next year', function () {
       var nextYear = new Date().getFullYear() + 1;
       expect(calendar.years).to.contain(nextYear);
     });
@@ -41,21 +41,21 @@ describe('Seasons @unit', function() {
   // summer march 15, june 1
   // fall june 15, sept 1
 
-  describe('Seasons', function() {
-    context('winter 2011', function() {
-      beforeEach(function() {
-        this.season = calendar.findSeason('WN11');
+  describe('Seasons', function () {
+    context('winter 2011', function () {
+      beforeEach(function () {
+        this.season = calendar.findSeason(calendar.seasons, 'WN11');
       });
 
-      it('should have id:WN11', function() {
+      it('should have id:WN11', function () {
         expect(this.season).to.be.ok;
       });
 
-      it('should have title:Winter 2011', function() {
+      it('should have title:Winter 2011', function () {
         expect(this.season).to.have.property('title', 'Winter 2011');
       });
 
-      it('should have charge date: Sept 15 2011', function() {
+      it('should have charge date: Sept 15 2011', function () {
         var month = 8;
         var day = 15;
         var year = 2011;
@@ -65,7 +65,7 @@ describe('Seasons @unit', function() {
         expect(this.season.dates.charge.toString()).to.contain('Sep');
       });
 
-      it('should have ship date: Dec 1 2011', function() {
+      it('should have ship date: Dec 1 2011', function () {
         var month = 11;
         var day = 1;
         var year = 2011;
@@ -75,7 +75,7 @@ describe('Seasons @unit', function() {
         expect(this.season.dates.ship.toString()).to.contain('Dec');
       });
 
-      it('should have inStoreDate: Aug 1 2011', function() {
+      it('should have inStoreDate: Aug 1 2011', function () {
         var month = 7;
         var day = 1;
         var year = 2011;
@@ -85,37 +85,37 @@ describe('Seasons @unit', function() {
         expect(this.season.dates.inStore.toString()).to.contain('Aug');
       });
 
-      it('should have kind: winter', function() {
+      it('should have kind: winter', function () {
         expect(this.season).to.have.property('kind', 'winter');
       });
 
-      it('should have year: 2011', function() {
+      it('should have year: 2011', function () {
         expect(this.season).to.have.property('year', 2011);
       });
 
-      it('should have code: WN', function() {
+      it('should have code: WN', function () {
         expect(this.season).to.have.property('code', 'WN');
       });
 
-      it('should start in: Aug 1', function() {
+      it('should start in: Aug 1', function () {
         expect(this.season.startDate.toString()).to.contain('Aug 01');
       });
     });
 
-    context('spring 2012', function() {
-      beforeEach(function() {
-        this.season = calendar.findSeason('SP12');
+    context('spring 2012', function () {
+      beforeEach(function () {
+        this.season = calendar.findSeason(calendar.seasons, 'SP12');
       });
 
-      it('should have id:SP12', function() {
+      it('should have id:SP12', function () {
         expect(this.season).to.be.ok;
       });
 
-      it('should have title:Spring 2012', function() {
+      it('should have title:Spring 2012', function () {
         expect(this.season).to.have.property('title', 'Spring 2012');
       });
 
-      it('should have chargeDate: Dec 15 2011', function() {
+      it('should have chargeDate: Dec 15 2011', function () {
         var month = 11;
         var day = 15;
         var year = 2011;
@@ -125,7 +125,7 @@ describe('Seasons @unit', function() {
         expect(this.season.dates.charge.toString()).to.contain('Dec');
       });
 
-      it('should have shipDate: March 1 2012', function() {
+      it('should have shipDate: March 1 2012', function () {
         var month = 2;
         var day = 1;
         var year = 2012;
@@ -135,7 +135,7 @@ describe('Seasons @unit', function() {
         expect(this.season.dates.ship.toString()).to.contain('Mar');
       });
 
-      it('should have inStoreDate: Nov 1 2012', function() {
+      it('should have inStoreDate: Nov 1 2012', function () {
         var month = 10;
         var day = 1;
         var year = 2012;
@@ -145,37 +145,37 @@ describe('Seasons @unit', function() {
         expect(this.season.dates.inStore.toString()).to.contain('Nov');
       });
 
-      it('should have kind: spring', function() {
+      it('should have kind: spring', function () {
         expect(this.season).to.have.property('kind', 'spring');
       });
 
-      it('should have year: 2012', function() {
+      it('should have year: 2012', function () {
         expect(this.season).to.have.property('year', 2012);
       });
 
-      it('should have code: SP', function() {
+      it('should have code: SP', function () {
         expect(this.season).to.have.property('code', 'SP');
       });
 
-      it('should start in: Nov 1', function() {
+      it('should start in: Nov 1', function () {
         expect(this.season.startDate.toString()).to.contain('Nov 01');
       });
     });
 
-    context('summer 2012', function() {
-      beforeEach(function() {
-        this.season = calendar.findSeason('SM12');
+    context('summer 2012', function () {
+      beforeEach(function () {
+        this.season = calendar.findSeason(calendar.seasons, 'SM12');
       });
 
-      it('should have id:SM12', function() {
+      it('should have id:SM12', function () {
         expect(this.season).to.be.ok;
       });
 
-      it('should have title:Summer 2012', function() {
+      it('should have title:Summer 2012', function () {
         expect(this.season).to.have.property('title', 'Summer 2012');
       });
 
-      it('should have chargeDate: March 15 2012', function() {
+      it('should have chargeDate: March 15 2012', function () {
         var month = 2;
         var day = 15;
         var year = 2012;
@@ -185,7 +185,7 @@ describe('Seasons @unit', function() {
         expect(this.season.dates.charge.toString()).to.contain('Mar');
       });
 
-      it('should have shipDate: June 1 2012', function() {
+      it('should have shipDate: June 1 2012', function () {
         var month = 5;
         var day = 1;
         var year = 2012;
@@ -195,7 +195,7 @@ describe('Seasons @unit', function() {
         expect(this.season.dates.ship.toString()).to.contain('Jun');
       });
 
-      it('should have inStoreDate: Feb 1 2012', function() {
+      it('should have inStoreDate: Feb 1 2012', function () {
         var month = 1;
         var day = 1;
         var year = 2012;
@@ -205,37 +205,37 @@ describe('Seasons @unit', function() {
         expect(this.season.dates.inStore.toString()).to.contain('Feb');
       });
 
-      it('should have kind: summer', function() {
+      it('should have kind: summer', function () {
         expect(this.season).to.have.property('kind', 'summer');
       });
 
-      it('should have year: 2012', function() {
+      it('should have year: 2012', function () {
         expect(this.season).to.have.property('year', 2012);
       });
 
-      it('should have code: SM', function() {
+      it('should have code: SM', function () {
         expect(this.season).to.have.property('code', 'SM');
       });
 
-      it('should start in: Feb 1', function() {
+      it('should start in: Feb 1', function () {
         expect(this.season.startDate.toString()).to.contain('Feb 01');
       });
     });
 
-    context('fall 2012', function() {
-      beforeEach(function() {
-        this.season = calendar.findSeason('FA12');
+    context('fall 2012', function () {
+      beforeEach(function () {
+        this.season = calendar.findSeason(calendar.seasons, 'FA12');
       });
 
-      it('should have id:FA12', function() {
+      it('should have id:FA12', function () {
         expect(this.season).to.be.ok;
       });
 
-      it('should have title:Fall 2012', function() {
+      it('should have title:Fall 2012', function () {
         expect(this.season).to.have.property('title', 'Fall 2012');
       });
 
-      it('should have chargeDate: June 15 2012', function() {
+      it('should have chargeDate: June 15 2012', function () {
         var month = 5;
         var day = 15;
         var year = 2012;
@@ -245,7 +245,7 @@ describe('Seasons @unit', function() {
         expect(this.season.dates.charge.toString()).to.contain('Jun');
       });
 
-      it('should have shipDate: Sept 1 2012', function() {
+      it('should have shipDate: Sept 1 2012', function () {
         var month = 8;
         var day = 1;
         var year = 2012;
@@ -255,7 +255,7 @@ describe('Seasons @unit', function() {
         expect(this.season.dates.ship.toString()).to.contain('Sep');
       });
 
-      it('should have inStoreDate: Apr 1 2012', function() {
+      it('should have inStoreDate: Apr 1 2012', function () {
         var month = 3;
         var day = 1;
         var year = 2012;
@@ -265,37 +265,37 @@ describe('Seasons @unit', function() {
         expect(this.season.dates.inStore.toString()).to.contain('Apr');
       });
 
-      it('should have kind: fall', function() {
+      it('should have kind: fall', function () {
         expect(this.season).to.have.property('kind', 'fall');
       });
 
-      it('should have year: 2012', function() {
+      it('should have year: 2012', function () {
         expect(this.season).to.have.property('year', 2012);
       });
 
-      it('should have code: FA', function() {
+      it('should have code: FA', function () {
         expect(this.season).to.have.property('code', 'FA');
       });
 
-      it('should start in: Apr 1', function() {
+      it('should start in: Apr 1', function () {
         expect(this.season.startDate.toString()).to.contain('Apr 01');
       });
     });
 
-    context('winter 2012', function() {
-      beforeEach(function() {
-        this.season = calendar.findSeason('WN12');
+    context('winter 2012', function () {
+      beforeEach(function () {
+        this.season = calendar.findSeason(calendar.seasons, 'WN12');
       });
 
-      it('should have id:WN12', function() {
+      it('should have id:WN12', function () {
         expect(this.season).to.be.ok;
       });
 
-      it('should have title:Winter 2012', function() {
+      it('should have title:Winter 2012', function () {
         expect(this.season).to.have.property('title', 'Winter 2012');
       });
 
-      it('should have chargeDate: Sept 15 2012', function() {
+      it('should have chargeDate: Sept 15 2012', function () {
         var month = 8;
         var day = 15;
         var year = 2012;
@@ -305,7 +305,7 @@ describe('Seasons @unit', function() {
         expect(this.season.dates.charge.toString()).to.contain('Sep');
       });
 
-      it('should have shipDate: Dec 1 2012', function() {
+      it('should have shipDate: Dec 1 2012', function () {
         var month = 11;
         var day = 1;
         var year = 2012;
@@ -315,7 +315,7 @@ describe('Seasons @unit', function() {
         expect(this.season.dates.ship.toString()).to.contain('Dec');
       });
 
-      it('should have inStoreDate: Aug 1 2012', function() {
+      it('should have inStoreDate: Aug 1 2012', function () {
         var month = 7;
         var day = 1;
         var year = 2012;
@@ -325,19 +325,19 @@ describe('Seasons @unit', function() {
         expect(this.season.dates.inStore.toString()).to.contain('Aug');
       });
 
-      it('should have kind: winter', function() {
+      it('should have kind: winter', function () {
         expect(this.season).to.have.property('kind', 'winter');
       });
 
-      it('should have year: 2012', function() {
+      it('should have year: 2012', function () {
         expect(this.season).to.have.property('year', 2012);
       });
 
-      it('should have code: WN', function() {
+      it('should have code: WN', function () {
         expect(this.season).to.have.property('code', 'WN');
       });
 
-      it('should start in: Aug 1', function() {
+      it('should start in: Aug 1', function () {
         expect(this.season.startDate.toString()).to.contain('Aug 01');
       });
     });
@@ -354,19 +354,34 @@ describe('Seasons @unit', function() {
       });
     });
 
-    describe('seasons per year', function() {
+    describe('seasons per year', function () {
       var years = calendar.years;
       var seasons = [
-        {kind:'spring', code: 'SP'},
-        {kind:'summer', code: 'SM'},
-        {kind:'fall', code: 'FA'},
-        {kind:'winter', code: 'WN'}
+        {
+          kind: 'spring',
+          code: 'SP'
+        },
+        {
+          kind: 'summer',
+          code: 'SM'
+        },
+        {
+          kind: 'fall',
+          code: 'FA'
+        },
+        {
+          kind: 'winter',
+          code: 'WN'
+        }
       ];
 
-      years.forEach(function(year) {
-        seasons.forEach(function(season) {
-          it('has `' + season.kind + '` season for `' + year + '`', function() {
-            var current = _.find(calendar.seasons, {kind:season.kind, year:year});
+      years.forEach(function (year) {
+        seasons.forEach(function (season) {
+          it('has `' + season.kind + '` season for `' + year + '`', function () {
+            var current = _.find(calendar.seasons, {
+              kind: season.kind,
+              year: year
+            });
             var code = season.code + (year - 2000);
             expect(current).to.have.property('id', code);
           });
@@ -375,37 +390,50 @@ describe('Seasons @unit', function() {
     });
   });
 
-  describe('active season', function(){
-    it('returns active season', function() {
+  describe('active season', function () {
+    it('returns active season', function () {
       var calendar = new EcCalendar('WN11');
-      var wn11 = calendar.findSeason('WN11');
+      var wn11 = calendar.findSeason(calendar.seasons, 'WN11');
 
       expect(calendar.activeSeason).to.equal(wn11);
     });
   });
 
-  describe('upcoming season', function() {
-    it('returns `SM12` as upcoming season to `SP12`', function() {
-      var calendar = new EcCalendar('WN12');
-      var sm12 = calendar.findSeason('SP12');
+  describe('upcoming season', function () {
+    it('returns `SM12` as upcoming season to `SP12`', function () {
+      var calendar = new EcCalendar('SP12');
+      var sm12 = calendar.findSeason(calendar.seasons, 'SM12');
 
       expect(calendar.upcomingSeason).to.equal(sm12);
     });
-  });
 
-  describe('previous season', function() {
-    it('returns `FA11` as previous season to `WN12`', function() {
-      var calendar = new EcCalendar('WN12');
-      var fa11 = calendar.findSeason('FA11');
+    it('returns `SP17` as upcoming season to `WN16`', function () {
+      var calendar = new EcCalendar('WN16');
+      var sp17 = calendar.findSeason(calendar.seasons, 'SP17');
 
-      expect(calendar.previousSeason).to.equal(fa11);
-
+      expect(calendar.upcomingSeason).to.equal(sp17);
     });
   });
 
-  describe('findSeason', function() {
-    it('returns `FA11`', function() {
-      var season = calendar.findSeason('FA11');
+  describe('previous season', function () {
+    it('returns `FA12` as previous season to `WN12`', function () {
+      var calendar = new EcCalendar('WN12');
+      var fa12 = calendar.findSeason(calendar.seasons, 'FA12');
+
+      expect(calendar.previousSeason).to.equal(fa12);
+    });
+
+    it('returns `WN16` as previous season to `SP17`', function () {
+      var calendar = new EcCalendar('SP17');
+      var wn16 = calendar.findSeason(calendar.seasons, 'WN16');
+
+      expect(calendar.previousSeason).to.equal(wn16);
+    });
+  });
+
+  describe('findSeason', function () {
+    it('returns `FA11`', function () {
+      var season = calendar.findSeason(calendar.seasons, 'FA11');
       expect(season.id).to.equal('FA11');
     });
   });

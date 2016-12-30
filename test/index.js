@@ -138,7 +138,7 @@ describe('Seasons @unit', function () {
       it('should have inStoreDate: Nov 1 2012', function () {
         var month = 10;
         var day = 1;
-        var year = 2012;
+        var year = 2011;
         var date = new Date(year, month, day);
 
         expect(this.season.dates.inStore.getTime()).to.equal(date.getTime());
@@ -388,6 +388,22 @@ describe('Seasons @unit', function () {
         });
       });
     });
+
+    describe('spring 2017', function () {
+      beforeEach(function () {
+        this.season = calendar.findSeason(calendar.seasons, 'SP17');
+      });
+
+      it('inStore date of 2017 should be 2016', function () {
+        var month = 10;
+        var day = 1;
+        var year = 2016;
+        var date = new Date(year, month, day);
+
+        expect(this.season.dates.inStore.getTime()).to.equal(date.getTime());
+        expect(this.season.dates.inStore.toString()).to.contain('Nov');
+      });
+    });
   });
 
   describe('active season', function () {
@@ -412,6 +428,13 @@ describe('Seasons @unit', function () {
       var sp17 = calendar.findSeason(calendar.seasons, 'SP17');
 
       expect(calendar.upcomingSeason).to.equal(sp17);
+    });
+
+    it('returns `WN16` as upcoming season to `FA16`', function () {
+      var calendar = new EcCalendar('FA16');
+      var wn16 = calendar.findSeason(calendar.seasons, 'WN16');
+
+      expect(calendar.upcomingSeason).to.equal(wn16);
     });
   });
 

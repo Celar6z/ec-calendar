@@ -21,7 +21,6 @@ define("ec-calendar",
      */
     var firstYear = 2011;
     var currentYear = today.getFullYear();
-    var nextYear = currentYear + 1;
     var nextTwoYears = currentYear + 2;
     var years = [];
 
@@ -90,7 +89,7 @@ define("ec-calendar",
           if (season.code === 'SP') {
             chargeYear -= 1;
           }
-          var inStoreDate = new Date(shipYear, season.inStoreMonth, inStoreDay);
+          var inStoreDate = new Date(chargeYear, season.inStoreMonth, inStoreDay);
           return {
             id: season.code + suffix,
             code: season.code,

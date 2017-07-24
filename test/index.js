@@ -44,7 +44,7 @@ describe('Seasons @unit', function () {
   describe('Seasons', function () {
     context('winter 2011', function () {
       beforeEach(function () {
-        this.season = calendar.findSeason(calendar.seasons, 'WN11');
+        this.season = calendar.findSeason('WN11');
       });
 
       it('should have id:WN11', function () {
@@ -104,7 +104,7 @@ describe('Seasons @unit', function () {
 
     context('spring 2012', function () {
       beforeEach(function () {
-        this.season = calendar.findSeason(calendar.seasons, 'SP12');
+        this.season = calendar.findSeason('SP12');
       });
 
       it('should have id:SP12', function () {
@@ -164,7 +164,7 @@ describe('Seasons @unit', function () {
 
     context('summer 2012', function () {
       beforeEach(function () {
-        this.season = calendar.findSeason(calendar.seasons, 'SM12');
+        this.season = calendar.findSeason('SM12');
       });
 
       it('should have id:SM12', function () {
@@ -224,7 +224,7 @@ describe('Seasons @unit', function () {
 
     context('fall 2012', function () {
       beforeEach(function () {
-        this.season = calendar.findSeason(calendar.seasons, 'FA12');
+        this.season = calendar.findSeason('FA12');
       });
 
       it('should have id:FA12', function () {
@@ -284,7 +284,7 @@ describe('Seasons @unit', function () {
 
     context('winter 2012', function () {
       beforeEach(function () {
-        this.season = calendar.findSeason(calendar.seasons, 'WN12');
+        this.season = calendar.findSeason('WN12');
       });
 
       it('should have id:WN12', function () {
@@ -391,7 +391,7 @@ describe('Seasons @unit', function () {
 
     describe('spring 2017', function () {
       beforeEach(function () {
-        this.season = calendar.findSeason(calendar.seasons, 'SP17');
+        this.season = calendar.findSeason('SP17');
       });
 
       it('inStore date of 2017 should be 2016', function () {
@@ -409,7 +409,7 @@ describe('Seasons @unit', function () {
   describe('active season', function () {
     it('returns active season', function () {
       var calendar = new EcCalendar('WN11');
-      var wn11 = calendar.findSeason(calendar.seasons, 'WN11');
+      var wn11 = calendar.findSeason('WN11');
 
       expect(calendar.activeSeason).to.equal(wn11);
     });
@@ -418,21 +418,21 @@ describe('Seasons @unit', function () {
   describe('upcoming season', function () {
     it('returns `SM12` as upcoming season to `SP12`', function () {
       var calendar = new EcCalendar('SP12');
-      var sm12 = calendar.findSeason(calendar.seasons, 'SM12');
+      var sm12 = calendar.findSeason('SM12');
 
       expect(calendar.upcomingSeason).to.equal(sm12);
     });
 
     it('returns `SP17` as upcoming season to `WN16`', function () {
       var calendar = new EcCalendar('WN16');
-      var sp17 = calendar.findSeason(calendar.seasons, 'SP17');
+      var sp17 = calendar.findSeason('SP17');
 
       expect(calendar.upcomingSeason).to.equal(sp17);
     });
 
     it('returns `WN16` as upcoming season to `FA16`', function () {
       var calendar = new EcCalendar('FA16');
-      var wn16 = calendar.findSeason(calendar.seasons, 'WN16');
+      var wn16 = calendar.findSeason('WN16');
 
       expect(calendar.upcomingSeason).to.equal(wn16);
     });
@@ -441,14 +441,14 @@ describe('Seasons @unit', function () {
   describe('previous season', function () {
     it('returns `FA12` as previous season to `WN12`', function () {
       var calendar = new EcCalendar('WN12');
-      var fa12 = calendar.findSeason(calendar.seasons, 'FA12');
+      var fa12 = calendar.findSeason('FA12');
 
       expect(calendar.previousSeason).to.equal(fa12);
     });
 
     it('returns `WN16` as previous season to `SP17`', function () {
       var calendar = new EcCalendar('SP17');
-      var wn16 = calendar.findSeason(calendar.seasons, 'WN16');
+      var wn16 = calendar.findSeason('WN16');
 
       expect(calendar.previousSeason).to.equal(wn16);
     });
@@ -456,8 +456,38 @@ describe('Seasons @unit', function () {
 
   describe('findSeason', function () {
     it('returns `FA11`', function () {
-      var season = calendar.findSeason(calendar.seasons, 'FA11');
+      var season = calendar.findSeason('FA11');
       expect(season.id).to.equal('FA11');
     });
   });
+
+  describe('active suit season', function () {
+    it('returns active suit season WN', function () {
+      var calendar = new EcCalendar('WN17');
+      var wn17 = calendar.findSeason('WN17');
+
+      expect(calendar.activeSuitSeason).to.equal(wn17);
+    })
+
+    it('returns active suit season FA', function () {
+      var calendar = new EcCalendar('FA17');
+      var wn17 = calendar.findSeason('WN17');
+
+      expect(calendar.activeSuitSeason).to.equal(wn17);
+    })
+
+    it('returns active suit season SP', function () {
+      var calendar = new EcCalendar('SP17');
+      var sm17 = calendar.findSeason('SM17');
+
+      expect(calendar.activeSuitSeason).to.equal(sm17);
+    })
+
+    it('returns active suit season SM', function () {
+      var calendar = new EcCalendar('SM17');
+      var sm17 = calendar.findSeason('SM17');
+
+      expect(calendar.activeSuitSeason).to.equal(sm17);
+    })
+  })
 });

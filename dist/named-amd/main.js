@@ -109,20 +109,6 @@ define("ec-calendar",
     }
 
     /**
-     * Find seaosn using season code
-     * @param  {String} id Season Code (e.g. WN11)
-     * @return {Season}
-     */
-    function findSeason(seasons, id) {
-      if (!id) {
-        throw Error('season id not specified');
-      }
-      return _.find(seasons, {
-        id: id
-      });
-    }
-
-    /**
      * Calendar
      */
     function Calendar(id) {
@@ -131,7 +117,8 @@ define("ec-calendar",
       this.years = years;
       this.seasons = buildSeasons();
 
-      this.activeSeason = findSeason(this.seasons, id);
+      this.activeSeason = this.findSeason(id);
+      this.activeSuitSeason = this.findSuitSeason(id);
 
       activeIndex = this.seasons.indexOf(this.activeSeason);
 
@@ -139,7 +126,30 @@ define("ec-calendar",
       this.upcomingSeason = this.seasons[activeIndex + 1];
     }
 
-    Calendar.prototype.findSeason = findSeason;
+    /**
+     * Find seaosn using season code
+     * @param  {String} id Season Code (e.g. WN11)
+     * @return {Season}
+     */
+    Calendar.prototype.findSeason = function (id) {
+      if (!id) {
+        throw Error('season id not specified');
+      }
+      return _.find(this.seasons, { id: id });
+    }
+
+    Calendar.prototype.findSuitSeason = function (seasonId) {
+      const season = seasonId.slice(0, 2)
+      const seasonYear = seasonId.slice(2)
+      switch (season) {
+        case 'SP':
+        case 'SM':
+          return this.findSeason(`SM${seasonYear}`)
+        case 'FA':
+        case 'WN':
+          return this.findSeason(`WN${seasonYear}`)
+      }
+    }
 
     __exports__["default"] = Calendar;
   });

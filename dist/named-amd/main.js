@@ -115,15 +115,13 @@ define("ec-calendar",
       this.years = years;
       this.seasons = buildSeasons();
 
-      this.activeSeason = this.findSeason(id);
+      this.activeShirtSeason = this.findSeason(id);
+      var activeIndex = this.seasons.indexOf(this.activeShirtSeason);
+      this.previousShirtSeason = this.seasons[activeIndex - 1];
+      this.upcomingShirtSeason = this.seasons[activeIndex + 1];
+
       this.activeSuitSeason = this.findSuitSeason(id);
-
-      var activeIndex = this.seasons.indexOf(this.activeSeason);
       var activeSuitIndex = this.seasons.indexOf(this.activeSuitSeason);
-
-      this.previousSeason = this.seasons[activeIndex - 1];
-      this.upcomingSeason = this.seasons[activeIndex + 1];
-
       this.previousSuitSeason = this.seasons[activeSuitIndex - 2];
       this.upcomingSuitSeason = this.seasons[activeSuitIndex + 2];
     }

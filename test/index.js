@@ -344,7 +344,7 @@ describe('Seasons @unit', function () {
     context('winter 2015', function () {
       beforeEach(function () {
         var calendar = new EcCalendar('WN15')
-        this.season = calendar.upcomingSeason
+        this.season = calendar.upcomingShirtSeason
       })
 
       it('next season should be spring and should be charged this year 2015', function () {
@@ -410,7 +410,7 @@ describe('Seasons @unit', function () {
       var calendar = new EcCalendar('WN11')
       var wn11 = calendar.findSeason('WN11')
 
-      expect(calendar.activeSeason).to.equal(wn11)
+      expect(calendar.activeShirtSeason).to.equal(wn11)
     })
   })
 
@@ -419,21 +419,21 @@ describe('Seasons @unit', function () {
       var calendar = new EcCalendar('SP12')
       var sm12 = calendar.findSeason('SM12')
 
-      expect(calendar.upcomingSeason).to.equal(sm12)
+      expect(calendar.upcomingShirtSeason).to.equal(sm12)
     })
 
     it('returns `SP17` as upcoming season to `WN16`', function () {
       var calendar = new EcCalendar('WN16')
       var sp17 = calendar.findSeason('SP17')
 
-      expect(calendar.upcomingSeason).to.equal(sp17)
+      expect(calendar.upcomingShirtSeason).to.equal(sp17)
     })
 
     it('returns `WN16` as upcoming season to `FA16`', function () {
       var calendar = new EcCalendar('FA16')
       var wn16 = calendar.findSeason('WN16')
 
-      expect(calendar.upcomingSeason).to.equal(wn16)
+      expect(calendar.upcomingShirtSeason).to.equal(wn16)
     })
   })
 
@@ -442,14 +442,14 @@ describe('Seasons @unit', function () {
       var calendar = new EcCalendar('WN12')
       var fa12 = calendar.findSeason('FA12')
 
-      expect(calendar.previousSeason).to.equal(fa12)
+      expect(calendar.previousShirtSeason).to.equal(fa12)
     })
 
     it('returns `WN16` as previous season to `SP17`', function () {
       var calendar = new EcCalendar('SP17')
       var wn16 = calendar.findSeason('WN16')
 
-      expect(calendar.previousSeason).to.equal(wn16)
+      expect(calendar.previousShirtSeason).to.equal(wn16)
     })
   })
 

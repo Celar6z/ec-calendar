@@ -112,18 +112,20 @@ define("ec-calendar",
      * Calendar
      */
     function Calendar(id) {
-      var activeIndex;
-
       this.years = years;
       this.seasons = buildSeasons();
 
       this.activeSeason = this.findSeason(id);
       this.activeSuitSeason = this.findSuitSeason(id);
 
-      activeIndex = this.seasons.indexOf(this.activeSeason);
+      var activeIndex = this.seasons.indexOf(this.activeSeason);
+      var activeSuitIndex = this.seasons.indexOf(this.activeSuitSeason);
 
       this.previousSeason = this.seasons[activeIndex - 1];
       this.upcomingSeason = this.seasons[activeIndex + 1];
+
+      this.previousSuitSeason = this.seasons[activeSuitIndex - 2];
+      this.upcomingSuitSeason = this.seasons[activeSuitIndex + 2];
     }
 
     /**

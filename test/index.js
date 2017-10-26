@@ -75,14 +75,14 @@ describe('Seasons @unit', function () {
         expect(this.season.dates.ship.toString()).to.contain('Dec');
       });
 
-      it('should have inStoreDate: Aug 1 2011', function () {
-        var month = 7;
+      it('should have inStoreDate: Jul 1 2011', function () {
+        var month = 6;
         var day = 1;
         var year = 2011;
         var date = new Date(year, month, day);
 
         expect(this.season.dates.inStore.getTime()).to.equal(date.getTime());
-        expect(this.season.dates.inStore.toString()).to.contain('Aug');
+        expect(this.season.dates.inStore.toString()).to.contain('Jul');
       });
 
       it('should have kind: winter', function () {
@@ -97,8 +97,8 @@ describe('Seasons @unit', function () {
         expect(this.season).to.have.property('code', 'WN');
       });
 
-      it('should start in: Aug 1', function () {
-        expect(this.season.startDate.toString()).to.contain('Aug 01');
+      it('should start in: Jul 1', function () {
+        expect(this.season.startDate.toString()).to.contain('Jul 01');
       });
     });
 
@@ -135,14 +135,14 @@ describe('Seasons @unit', function () {
         expect(this.season.dates.ship.toString()).to.contain('Mar');
       });
 
-      it('should have inStoreDate: Nov 1 2012', function () {
-        var month = 10;
+      it('should have inStoreDate: Oct 1 2012', function () {
+        var month = 9;
         var day = 1;
         var year = 2011;
         var date = new Date(year, month, day);
 
         expect(this.season.dates.inStore.getTime()).to.equal(date.getTime());
-        expect(this.season.dates.inStore.toString()).to.contain('Nov');
+        expect(this.season.dates.inStore.toString()).to.contain('Oct');
       });
 
       it('should have kind: spring', function () {
@@ -157,8 +157,8 @@ describe('Seasons @unit', function () {
         expect(this.season).to.have.property('code', 'SP');
       });
 
-      it('should start in: Nov 1', function () {
-        expect(this.season.startDate.toString()).to.contain('Nov 01');
+      it('should start in: Oct 1', function () {
+        expect(this.season.startDate.toString()).to.contain('Oct 01');
       });
     });
 
@@ -195,14 +195,14 @@ describe('Seasons @unit', function () {
         expect(this.season.dates.ship.toString()).to.contain('Jun');
       });
 
-      it('should have inStoreDate: Feb 1 2012', function () {
-        var month = 1;
+      it('should have inStoreDate: Jan 1 2012', function () {
+        var month = 0;
         var day = 1;
         var year = 2012;
         var date = new Date(year, month, day);
 
         expect(this.season.dates.inStore.getTime()).to.equal(date.getTime());
-        expect(this.season.dates.inStore.toString()).to.contain('Feb');
+        expect(this.season.dates.inStore.toString()).to.contain('Jan');
       });
 
       it('should have kind: summer', function () {
@@ -217,8 +217,8 @@ describe('Seasons @unit', function () {
         expect(this.season).to.have.property('code', 'SM');
       });
 
-      it('should start in: Feb 1', function () {
-        expect(this.season.startDate.toString()).to.contain('Feb 01');
+      it('should start in: Jan 1', function () {
+        expect(this.season.startDate.toString()).to.contain('Jan 01');
       });
     });
 
@@ -315,14 +315,14 @@ describe('Seasons @unit', function () {
         expect(this.season.dates.ship.toString()).to.contain('Dec');
       });
 
-      it('should have inStoreDate: Aug 1 2012', function () {
-        var month = 7;
+      it('should have inStoreDate: Jul 1 2012', function () {
+        var month = 6;
         var day = 1;
         var year = 2012;
         var date = new Date(year, month, day);
 
         expect(this.season.dates.inStore.getTime()).to.equal(date.getTime());
-        expect(this.season.dates.inStore.toString()).to.contain('Aug');
+        expect(this.season.dates.inStore.toString()).to.contain('Jul');
       });
 
       it('should have kind: winter', function () {
@@ -337,8 +337,8 @@ describe('Seasons @unit', function () {
         expect(this.season).to.have.property('code', 'WN');
       });
 
-      it('should start in: Aug 1', function () {
-        expect(this.season.startDate.toString()).to.contain('Aug 01');
+      it('should start in: Jul 1', function () {
+        expect(this.season.startDate.toString()).to.contain('Jul 01');
       });
     });
 
@@ -395,13 +395,13 @@ describe('Seasons @unit', function () {
       });
 
       it('inStore date of 2017 should be 2016', function () {
-        var month = 10;
+        var month = 9;
         var day = 1;
         var year = 2016;
         var date = new Date(year, month, day);
 
         expect(this.season.dates.inStore.getTime()).to.equal(date.getTime());
-        expect(this.season.dates.inStore.toString()).to.contain('Nov');
+        expect(this.season.dates.inStore.toString()).to.contain('Oct');
       });
     });
   });

@@ -41,7 +41,7 @@ describe('Seasons @unit', function () {
   // fall june 15, sept 1
 
   describe('Seasons', function () {
-    context('winter 2011', function () {
+    context('shirt winter 2011', function () {
       beforeEach(function () {
         this.season = calendar.findSeason('WN11')
       })
@@ -101,7 +101,67 @@ describe('Seasons @unit', function () {
       })
     })
 
-    context('spring 2012', function () {
+    context('suit winter 2011', function () {
+      beforeEach(function () {
+        this.season = calendar.findSeason('WN11', 'suit')
+      })
+
+      it('should have id:WN11', function () {
+        expect(this.season).to.be.ok
+      })
+
+      it('should have title:Winter 2011', function () {
+        expect(this.season).to.have.property('title', 'Winter 2011')
+      })
+
+      it('should have charge date: Sept 15 2011', function () {
+        var month = 8
+        var day = 15
+        var year = 2011
+        var date = new Date(year, month, day)
+
+        expect(this.season.dates.charge.getTime()).to.equal(date.getTime())
+        expect(this.season.dates.charge.toString()).to.contain('Sep')
+      })
+
+      it('should have ship date: Dec 1 2011', function () {
+        var month = 11
+        var day = 1
+        var year = 2011
+        var date = new Date(year, month, day)
+
+        expect(this.season.dates.ship.getTime()).to.equal(date.getTime())
+        expect(this.season.dates.ship.toString()).to.contain('Dec')
+      })
+
+      it('should have inStoreDate: Apr 1 2011', function () {
+        var month = 3
+        var day = 1
+        var year = 2011
+        var date = new Date(year, month, day)
+
+        expect(this.season.dates.inStore.getTime()).to.equal(date.getTime())
+        expect(this.season.dates.inStore.toString()).to.contain('Apr')
+      })
+
+      it('should have kind: winter', function () {
+        expect(this.season).to.have.property('kind', 'winter')
+      })
+
+      it('should have year: 2011', function () {
+        expect(this.season).to.have.property('year', 2011)
+      })
+
+      it('should have code: WN', function () {
+        expect(this.season).to.have.property('code', 'WN')
+      })
+
+      it('should start in: Apr 1', function () {
+        expect(this.season.startDate.toString()).to.contain('Apr 01')
+      })
+    })
+
+    context('shirt spring 2012', function () {
       beforeEach(function () {
         this.season = calendar.findSeason('SP12')
       })
@@ -161,7 +221,7 @@ describe('Seasons @unit', function () {
       })
     })
 
-    context('summer 2012', function () {
+    context('shirt summer 2012', function () {
       beforeEach(function () {
         this.season = calendar.findSeason('SM12')
       })
@@ -221,7 +281,67 @@ describe('Seasons @unit', function () {
       })
     })
 
-    context('fall 2012', function () {
+    context('suit summer 2012', function () {
+      beforeEach(function () {
+        this.season = calendar.findSeason('SM12', 'suit')
+      })
+
+      it('should have id:SM12', function () {
+        expect(this.season).to.be.ok
+      })
+
+      it('should have title:Summer 2012', function () {
+        expect(this.season).to.have.property('title', 'Summer 2012')
+      })
+
+      it('should have chargeDate: March 15 2012', function () {
+        var month = 2
+        var day = 15
+        var year = 2012
+        var date = new Date(year, month, day)
+
+        expect(this.season.dates.charge.getTime()).to.equal(date.getTime())
+        expect(this.season.dates.charge.toString()).to.contain('Mar')
+      })
+
+      it('should have shipDate: June 1 2012', function () {
+        var month = 5
+        var day = 1
+        var year = 2012
+        var date = new Date(year, month, day)
+
+        expect(this.season.dates.ship.getTime()).to.equal(date.getTime())
+        expect(this.season.dates.ship.toString()).to.contain('Jun')
+      })
+
+      it('should have inStoreDate: Oct 1 2011', function () {
+        var month = 9
+        var day = 1
+        var year = 2011
+        var date = new Date(year, month, day)
+
+        expect(this.season.dates.inStore.getTime()).to.equal(date.getTime())
+        expect(this.season.dates.inStore.toString()).to.contain('Oct')
+      })
+
+      it('should have kind: summer', function () {
+        expect(this.season).to.have.property('kind', 'summer')
+      })
+
+      it('should have year: 2012', function () {
+        expect(this.season).to.have.property('year', 2012)
+      })
+
+      it('should have code: SM', function () {
+        expect(this.season).to.have.property('code', 'SM')
+      })
+
+      it('should start in: Oct 1', function () {
+        expect(this.season.startDate.toString()).to.contain('Oct 01')
+      })
+    })
+
+    context(' shirt fall 2012', function () {
       beforeEach(function () {
         this.season = calendar.findSeason('FA12')
       })
@@ -281,7 +401,7 @@ describe('Seasons @unit', function () {
       })
     })
 
-    context('winter 2012', function () {
+    context('shirt winter 2012', function () {
       beforeEach(function () {
         this.season = calendar.findSeason('WN12')
       })
@@ -341,15 +461,88 @@ describe('Seasons @unit', function () {
       })
     })
 
-    context('winter 2015', function () {
+    context('suit winter 2012', function () {
+      beforeEach(function () {
+        this.season = calendar.findSeason('WN12', 'suit')
+      })
+
+      it('should have id:WN12', function () {
+        expect(this.season).to.be.ok
+      })
+
+      it('should have title:Winter 2012', function () {
+        expect(this.season).to.have.property('title', 'Winter 2012')
+      })
+
+      it('should have chargeDate: Sept 15 2012', function () {
+        var month = 8
+        var day = 15
+        var year = 2012
+        var date = new Date(year, month, day)
+
+        expect(this.season.dates.charge.getTime()).to.equal(date.getTime())
+        expect(this.season.dates.charge.toString()).to.contain('Sep')
+      })
+
+      it('should have shipDate: Dec 1 2012', function () {
+        var month = 11
+        var day = 1
+        var year = 2012
+        var date = new Date(year, month, day)
+
+        expect(this.season.dates.ship.getTime()).to.equal(date.getTime())
+        expect(this.season.dates.ship.toString()).to.contain('Dec')
+      })
+
+      it('should have inStoreDate: Apr 1 2012', function () {
+        var month = 3
+        var day = 1
+        var year = 2012
+        var date = new Date(year, month, day)
+
+        expect(this.season.dates.inStore.getTime()).to.equal(date.getTime())
+        expect(this.season.dates.inStore.toString()).to.contain('Apr')
+      })
+
+      it('should have kind: winter', function () {
+        expect(this.season).to.have.property('kind', 'winter')
+      })
+
+      it('should have year: 2012', function () {
+        expect(this.season).to.have.property('year', 2012)
+      })
+
+      it('should have code: WN', function () {
+        expect(this.season).to.have.property('code', 'WN')
+      })
+
+      it('should start in: Apr 1', function () {
+        expect(this.season.startDate.toString()).to.contain('Apr 01')
+      })
+    })
+
+    context.only('shirt winter 2015', function () {
       beforeEach(function () {
         var calendar = new EcCalendar('WN15')
         this.season = calendar.upcomingShirtSeason
+        console.log('======', this.season)
       })
 
       it('next season should be spring and should be charged this year 2015', function () {
         expect(this.season.dates.charge.getFullYear()).to.equal(2015)
         expect(this.season.dates.charge.getMonth()).to.equal(11)
+      })
+    })
+
+    context('suit winter 2015', function () {
+      beforeEach(function () {
+        var calendar = new EcCalendar('WN15')
+        this.season = calendar.upcomingSuitSeason
+      })
+
+      it('next season should be summer and should be charged the next year 2016', function () {
+        expect(this.season.dates.charge.getFullYear()).to.equal(2016)
+        expect(this.season.dates.charge.getMonth()).to.equal(2)
       })
     })
 
@@ -388,9 +581,25 @@ describe('Seasons @unit', function () {
       })
     })
 
-    describe('spring 2017', function () {
+    describe('shirt spring 2017', function () {
       beforeEach(function () {
         this.season = calendar.findSeason('SP17')
+      })
+
+      it('inStore date of 2017 should be 2016', function () {
+        var month = 9
+        var day = 1
+        var year = 2016
+        var date = new Date(year, month, day)
+
+        expect(this.season.dates.inStore.getTime()).to.equal(date.getTime())
+        expect(this.season.dates.inStore.toString()).to.contain('Oct')
+      })
+    })
+
+    describe('suit summer 2017', function () {
+      beforeEach(function () {
+        this.season = calendar.findSeason('SM17', 'suit')
       })
 
       it('inStore date of 2017 should be 2016', function () {

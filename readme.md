@@ -14,6 +14,14 @@ var calendar = new EcCalendar('SM15');
 
 ## Calendar API
 
+## Development
+    For every change we made in to this lib we should compile the project again, in order to do this we need to install `broccoli` and `broccoli-cli` dependencies with the following command:
+    `npm install -g broccoli@0.12.0 broccoli-cli@^0.0.1`
+    and then compile our project with the following command:
+    `broccoli build dist`
+    The new `dist` should be added to the repo. 
+    Note: The index should be formmated with `;` before to be compiled.
+
 ### calendar.years
 Years of existing seasons, from 2011 to next year
 

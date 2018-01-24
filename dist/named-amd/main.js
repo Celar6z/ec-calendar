@@ -133,7 +133,7 @@ define("ec-calendar",
             startDate: inStoreDate,
             year: year,
             kind: season.kind
-          }
+          };
         });
       });
       return _.flatten(seasons);
@@ -164,7 +164,8 @@ define("ec-calendar",
      * @param  {String} id Season Code (e.g. WN11)
      * @return {Season}
      */
-    Calendar.prototype.findSeason = function (id, type = 'shirt') {
+    Calendar.prototype.findSeason = function (id, type) {
+      type = type || 'shirt';
       if (!id) {
         throw Error('season id not specified');
       }

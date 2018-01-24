@@ -181,10 +181,10 @@ define("ec-calendar",
       switch (season) {
         case 'SP':
         case 'SM':
-          return this.findSeason(`SM${seasonYear}`, 'suit');
+          return this.findSeason('SM' + seasonYear, 'suit');
         case 'FA':
         case 'WN':
-          return this.findSeason(`WN${seasonYear}`, 'suit');
+          return this.findSeason('WN' + seasonYear, 'suit');
       }
     }
 

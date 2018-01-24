@@ -10,27 +10,27 @@ define(
     /**
      * Locals
      */
-    const today = new Date();
-    const chargeDay = 15;
-    const shipDay = 1;
-    const inStoreDay = 1;
+    var today = new Date();
+    var chargeDay = 15;
+    var shipDay = 1;
+    var inStoreDay = 1;
 
     /**
      * Years
      */
-    const firstYear = 2011;
-    const currentYear = today.getFullYear();
-    const nextTwoYears = currentYear + 2;
-    const years = [];
+    var firstYear = 2011;
+    var currentYear = today.getFullYear();
+    var nextTwoYears = currentYear + 2;
+    var years = [];
 
-    for (let i = nextTwoYears - firstYear; i >= 0; i--) {
+    for (var i = nextTwoYears - firstYear; i >= 0; i--) {
       years.push(nextTwoYears - i);
     }
 
     /**
      * Season Defaults
      */
-    const winter = {
+    var winter = {
       type: 'shirt',
       code: 'WN',
       title: 'Winter',
@@ -40,7 +40,7 @@ define(
       kind: 'winter'
     };
 
-    const suitWinter = {
+    var suitWinter = {
       type: 'suit',
       code: 'WN',
       title: 'Winter',
@@ -50,7 +50,7 @@ define(
       kind: 'winter'
     };
 
-    const spring = {
+    var spring = {
       type: 'shirt',
       code: 'SP',
       title: 'Spring',
@@ -60,7 +60,7 @@ define(
       kind: 'spring'
     };
 
-    const summer = {
+    var summer = {
       type: 'shirt',
       code: 'SM',
       title: 'Summer',
@@ -70,7 +70,7 @@ define(
       kind: 'summer'
     };
 
-    const suitSummer = {
+    var suitSummer = {
       type: 'suit',
       code: 'SM',
       title: 'Summer',
@@ -80,7 +80,7 @@ define(
       kind: 'summer'
     };
 
-    const fall = {
+    var fall = {
       type: 'shirt',
       code: 'FA',
       title: 'Fall',
@@ -90,7 +90,7 @@ define(
       kind: 'fall'
     };
 
-    const defaults = [
+    var defaults = [
       spring,
       summer,
       suitSummer,
@@ -104,13 +104,13 @@ define(
        * Build all seasons for each available year
        */
 
-      const seasons = years.map(function (year) {
-        const suffix = year - 2000;
+      var seasons = years.map(function (year) {
+        var suffix = year - 2000;
 
         return defaults.map(function (season) {
-          let inStoreYear = year;
-          let chargeYear = year;
-          const shipYear = year;
+          var inStoreYear = year;
+          var chargeYear = year;
+          var shipYear = year;
 
           if (season.code === 'SP') {
             chargeYear -= 1;
@@ -118,7 +118,7 @@ define(
           } else if (season.code === 'SM' && season.type === 'suit') {
             inStoreYear -= 1;
           }
-          const inStoreDate = new Date(inStoreYear, season.inStoreMonth, inStoreDay);
+          var inStoreDate = new Date(inStoreYear, season.inStoreMonth, inStoreDay);
 
           return {
             type: season.type,
@@ -172,8 +172,8 @@ define(
     }
 
     Calendar.prototype.findSuitSeason = function (seasonId) {
-      const season = seasonId.slice(0, 2);
-      const seasonYear = seasonId.slice(2);
+      var season = seasonId.slice(0, 2);
+      var seasonYear = seasonId.slice(2);
       switch (season) {
         case 'SP':
         case 'SM':

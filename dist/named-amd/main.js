@@ -145,9 +145,12 @@ define("ec-calendar",
     function Calendar (id) {
       this.years = years;
       this.seasons = buildSeasons();
-      this.shirtSeasons = this.seasons.filter(season => season.type === 'shirt');
-      this.suitSeasons = this.seasons.filter(season => season.type === 'suit');
-
+      this.shirtSeasons = this.seasons.filter(function (season) {
+        return season.type === 'shirt';
+      });
+      this.suitSeasons = this.seasons.filter(function (season) {
+        return season.type === 'suit';
+      });
       this.activeShirtSeason = this.findSeason(id, 'shirt');
       var activeIndex = this.shirtSeasons.indexOf(this.activeShirtSeason);
       this.previousShirtSeason = this.shirtSeasons[activeIndex - 1];
